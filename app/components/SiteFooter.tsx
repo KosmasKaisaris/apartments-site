@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { apartments } from "../lib/siteContent";
+import { getLocaleFromCookies } from "../lib/i18n.server";
+import { t } from "../lib/i18n.shared";
 
-export function SiteFooter() {
+export async function SiteFooter() {
   const primaryContact = apartments[0]?.contact;
   const phoneHref = primaryContact?.phoneE164
     ? `tel:${primaryContact.phoneE164}`
@@ -12,6 +14,8 @@ export function SiteFooter() {
     : undefined;
 
   const year = new Date().getFullYear();
+  const locale = await getLocaleFromCookies();
+  const dict = t(locale);
 
   return (
     <footer className="mt-auto border-t border-zinc-200/70 bg-white dark:border-white/10 dark:bg-black">
@@ -33,32 +37,31 @@ export function SiteFooter() {
                   Luxery Apartments Theodoras
                 </div>
                 <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                  Direct booking — contact us anytime.
+                  {dict.footer.directBooking}
                 </div>
               </div>
             </Link>
 
             <p className="max-w-md text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-              Explore each apartment’s highlights, amenities, and gallery photos.
-              When you’re ready, call or email us to check availability.
+              {dict.footer.about}
             </p>
           </div>
 
           <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-2">
             <div className="space-y-3">
               <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
-                Quick info
+                {dict.footer.quickInfo}
               </div>
               <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <li>Fast Wi‑Fi</li>
-                <li>Comfort-first amenities</li>
-                <li>Photo galleries</li>
+                <li>{dict.footer.q1}</li>
+                <li>{dict.footer.q2}</li>
+                <li>{dict.footer.q3}</li>
               </ul>
             </div>
 
             <div className="space-y-3">
               <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
-                Contact
+                {dict.footer.contact}
               </div>
               <div className="space-y-2 text-sm">
                 {phoneHref ? (
@@ -70,7 +73,7 @@ export function SiteFooter() {
                   </a>
                 ) : (
                   <div className="text-zinc-600 dark:text-zinc-400">
-                    Phone available soon
+                    {dict.footer.phoneSoon}
                   </div>
                 )}
 
@@ -83,7 +86,7 @@ export function SiteFooter() {
                   </a>
                 ) : (
                   <div className="text-zinc-600 dark:text-zinc-400">
-                    Email available soon
+                    {dict.footer.emailSoon}
                   </div>
                 )}
               </div>
@@ -92,7 +95,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-zinc-200/70 pt-6 text-sm text-zinc-600 dark:border-white/10 dark:text-zinc-400 sm:flex-row sm:items-center sm:justify-between">
-          <div>© {year} Luxery Apartments Theodoras. All rights reserved.</div>
+          <div>
+            © {year} Luxery Apartments Theodoras. {dict.footer.rights}
+          </div>
         </div>
       </div>
     </footer>

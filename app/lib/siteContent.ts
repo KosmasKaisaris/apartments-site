@@ -1,5 +1,5 @@
 export type Apartment = {
-  slug: "apartment-a" | "apartment-b";
+  slug: "stone-villa-parga" | "ivory-boutique-stay-nafplio";
   name: string;
   tagline: string;
   locationLine: string;
@@ -17,11 +17,14 @@ export type Apartment = {
 
 export const apartments: Apartment[] = [
   {
-    slug: "apartment-a",
-    name: "Apartment A",
+    slug: "stone-villa-parga",
+    name: "Stone Villa Parga",
     tagline: "Bright, calm, and minimal — perfect for couples.",
     locationLine: "Agia · Parga, Greece",
-    heroImage: { src: "/appartment-a/parga%20(15).jpg", alt: "Apartment A" },
+    heroImage: {
+      src: "/appartment-a/parga%20(15).jpg",
+      alt: "Stone Villa Parga",
+    },
     quickFacts: [
       { label: "Guests", value: "2–3" },
       { label: "Bedrooms", value: "1" },
@@ -49,17 +52,20 @@ export const apartments: Apartment[] = [
       { src: "/appartment-a/hero.jpg", alt: "Apartment A — photo 4" },
     ],
     contact: {
-      phoneDisplay: "+30 69 0000 0000",
-      phoneE164: "+306900000000",
-      email: "hello@example.com",
+      phoneDisplay: "+30 697 699 4134",
+      phoneE164: "+306976994134",
+      email: "dimsmirlis7@gmail.com",
     },
   },
   {
-    slug: "apartment-b",
-    name: "Apartment B",
+    slug: "ivory-boutique-stay-nafplio",
+    name: "Ivory Boutique Stay Nafplio",
     tagline: "Spacious and family-friendly — ideal for longer stays.",
     locationLine: "Your area · City, Greece",
-    heroImage: { src: "/appartment-b/Nafplio%20(16).jpg", alt: "Apartment B" },
+    heroImage: {
+      src: "/appartment-b/Nafplio%20(16).jpg",
+      alt: "Ivory Boutique Stay Nafplio",
+    },
     quickFacts: [
       { label: "Guests", value: "4–5" },
       { label: "Bedrooms", value: "2" },
@@ -87,9 +93,9 @@ export const apartments: Apartment[] = [
       { src: "/appartment-b/hero.jpg", alt: "Apartment B — photo 4" },
     ],
     contact: {
-      phoneDisplay: "+30 69 0000 0000",
-      phoneE164: "+306900000000",
-      email: "hello@example.com",
+      phoneDisplay: "+30 697 699 4134",
+      phoneE164: "+306976994134",
+      email: "dimsmirlis7@gmail.com",
     },
   },
 ];

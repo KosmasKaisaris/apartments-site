@@ -1,7 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { apartments } from "../lib/siteContent";
+import { getLocaleFromCookies } from "../lib/i18n.server";
+import { t } from "../lib/i18n.shared";
+import { LanguageToggle } from "./LanguageToggle";
 
-export function SiteHeader() {
+export async function SiteHeader() {
+  const a = apartments[0];
+  const b = apartments[1];
+  const locale = await getLocaleFromCookies();
+  const dict = t(locale);
+
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-black/40">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4">
@@ -20,23 +29,26 @@ export function SiteHeader() {
             />
           </span>
           <span className="text-sm uppercase tracking-[0.18em] text-zinc-700 group-hover:text-zinc-950 dark:text-zinc-300 dark:group-hover:text-white">
-            Luxery Apartments Theodoras
+            {dict.header.title}
           </span>
         </Link>
 
         <nav className="flex items-center gap-2 text-sm">
           <Link
-            href="/apartment-a"
+            href={`/${a.slug}`}
             className="rounded-full px-3 py-2 text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white"
           >
-            Parga
+            {dict.header.parga}
           </Link>
           <Link
-            href="/apartment-b"
+            href={`/${b.slug}`}
             className="rounded-full px-3 py-2 text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white"
           >
-            Nafplio
+            {dict.header.nafplio}
           </Link>
+          <div className="pl-1">
+            <LanguageToggle />
+          </div>
         </nav>
       </div>
     </header>

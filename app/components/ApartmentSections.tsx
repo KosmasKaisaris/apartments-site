@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { Card, Pill, PrimaryLink, SecondaryLink } from "./Ui";
 import type { Apartment } from "../lib/siteContent";
+import { getLocaleFromCookies } from "../lib/i18n.server";
+import { t } from "../lib/i18n.shared";
 
-export function ApartmentHero(props: { apartment: Apartment }) {
+export async function ApartmentHero(props: { apartment: Apartment }) {
   const { apartment } = props;
+  const dict = t(await getLocaleFromCookies());
 
   return (
     <div className="relative overflow-hidden border-b border-zinc-200/70 bg-gradient-to-b from-zinc-50 to-white dark:border-white/10 dark:from-black dark:to-black">
@@ -36,10 +39,10 @@ export function ApartmentHero(props: { apartment: Apartment }) {
 
             <div className="flex flex-col gap-3 pt-4 sm:flex-row">
               <PrimaryLink href={`mailto:${apartment.contact.email}`} external>
-                Email
+                {dict.apartment.email}
               </PrimaryLink>
               <SecondaryLink href={`tel:${apartment.contact.phoneE164}`} external>
-                Call {apartment.contact.phoneDisplay}
+                {dict.apartment.call} {apartment.contact.phoneDisplay}
               </SecondaryLink>
             </div>
           </div>

@@ -3,10 +3,14 @@ import Link from "next/link";
 import { apartments } from "./lib/siteContent";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { getLocaleFromCookies } from "./lib/i18n.server";
+import { t } from "./lib/i18n.shared";
 
-export default function Home() {
+export default async function Home() {
   const a = apartments[0];
   const b = apartments[1];
+  const locale = await getLocaleFromCookies();
+  const dict = t(locale);
 
   return (
     <div className="flex min-h-dvh flex-col bg-white dark:bg-black">
@@ -16,14 +20,13 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:py-14">
           <div className="flex flex-col gap-3">
             <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-600 dark:text-zinc-400">
-              Luxury stays in Greece
+              {dict.home.kicker}
             </div>
             <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
-              Choose your apartment
+              {dict.home.title}
             </h1>
             <p className="max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400 sm:text-base">
-              Two beautiful apartments with photos, amenities, and direct contact.
-              No booking platform — reach us instantly.
+              {dict.home.subtitle}
             </p>
           </div>
 
@@ -48,16 +51,16 @@ export default function Home() {
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
             <InfoCard
-              title="Direct contact"
-              description="Call or email us to check availability, ask questions, and confirm your stay."
+              title={dict.home.info1Title}
+              description={dict.home.info1Desc}
             />
             <InfoCard
-              title="What you’ll find"
-              description="Fast Wi‑Fi, comfort-focused amenities, and carefully photographed spaces."
+              title={dict.home.info2Title}
+              description={dict.home.info2Desc}
             />
             <InfoCard
-              title="Quick decision"
-              description="Open an apartment page to see highlights, amenities, and the full gallery."
+              title={dict.home.info3Title}
+              description={dict.home.info3Desc}
             />
           </div>
         </div>
