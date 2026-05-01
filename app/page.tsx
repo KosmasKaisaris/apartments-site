@@ -1,65 +1,131 @@
 import Image from "next/image";
+import Link from "next/link";
+import { apartments } from "./lib/siteContent";
+import { SiteFooter } from "./components/SiteFooter";
+import { SiteHeader } from "./components/SiteHeader";
 
 export default function Home() {
+  const a = apartments[0];
+  const b = apartments[1];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="flex min-h-dvh flex-col bg-white dark:bg-black">
+      <SiteHeader />
+
+      <main className="flex-1">
+        <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:py-14">
+          <div className="flex flex-col gap-3">
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-600 dark:text-zinc-400">
+              Luxury stays in Greece
+            </div>
+            <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
+              Choose your apartment
+            </h1>
+            <p className="max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400 sm:text-base">
+              Two beautiful apartments with photos, amenities, and direct contact.
+              No booking platform — reach us instantly.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            <SplitPanel
+              href={`/${a.slug}`}
+              title={a.name}
+              subtitle={a.tagline}
+              meta={a.locationLine}
+              imageSrc={a.heroImage.src}
+              imageAlt={a.heroImage.alt}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <SplitPanel
+              href={`/${b.slug}`}
+              title={b.name}
+              subtitle={b.tagline}
+              meta={b.locationLine}
+              imageSrc={b.heroImage.src}
+              imageAlt={b.heroImage.alt}
+            />
+          </div>
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <InfoCard
+              title="Direct contact"
+              description="Call or email us to check availability, ask questions, and confirm your stay."
+            />
+            <InfoCard
+              title="What you’ll find"
+              description="Fast Wi‑Fi, comfort-focused amenities, and carefully photographed spaces."
+            />
+            <InfoCard
+              title="Quick decision"
+              description="Open an apartment page to see highlights, amenities, and the full gallery."
+            />
+          </div>
         </div>
       </main>
+
+      <SiteFooter />
+    </div>
+  );
+}
+
+function SplitPanel(props: {
+  href: string;
+  title: string;
+  subtitle: string;
+  meta: string;
+  imageSrc: string;
+  imageAlt: string;
+}) {
+  return (
+    <Link
+      href={props.href}
+      className="group relative isolate flex h-[320px] items-end overflow-hidden rounded-3xl border border-zinc-200/70 bg-zinc-950 shadow-sm transition hover:shadow-md dark:border-white/10"
+    >
+      <Image
+        src={props.imageSrc}
+        alt={props.imageAlt}
+        fill
+        className="object-cover opacity-90 transition duration-500 group-hover:scale-[1.02] group-hover:opacity-100"
+        sizes="(min-width: 1024px) 560px, 100vw"
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+      <div className="absolute inset-0 opacity-[0.35] [background:radial-gradient(900px_circle_at_20%_20%,rgba(255,255,255,0.22),transparent_55%)]" />
+
+      <div className="relative w-full p-6 sm:p-10">
+        <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
+          {props.meta}
+        </div>
+        <div className="mt-3 flex items-end justify-between gap-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              {props.title}
+            </h1>
+            <p className="max-w-xl text-sm leading-6 text-white/80 sm:text-base">
+              {props.subtitle}
+            </p>
+          </div>
+          <div className="hidden shrink-0 items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/15 backdrop-blur sm:inline-flex">
+            View
+            <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+              →
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function InfoCard(props: { title: string; description: string }) {
+  return (
+    <div className="rounded-3xl border border-zinc-200/70 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-black">
+      <div className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+        {props.title}
+      </div>
+      <div className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+        {props.description}
+      </div>
     </div>
   );
 }
