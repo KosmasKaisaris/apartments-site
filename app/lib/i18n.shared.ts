@@ -41,10 +41,6 @@ const DICT = {
       directBooking: "Direct booking — contact us anytime.",
       about:
         "Explore each apartment’s highlights, amenities, and gallery photos. When you’re ready, call or email us to check availability.",
-      quickInfo: "Quick info",
-      q1: "Fast Wi‑Fi",
-      q2: "Comfort-first amenities",
-      q3: "Photo galleries",
       contact: "Contact",
       rights: "All rights reserved.",
       privacy: "Privacy",
@@ -79,7 +75,8 @@ const DICT = {
       call: "Κλήση",
       whyLoveEyebrow: "Γιατί θα σου αρέσει",
       highlightsTitle: "Highlights",
-      highlightsDesc: "Μια γρήγορη εικόνα για το τι κάνει το κατάλυμα ξεχωριστό.",
+      highlightsDesc:
+        "Μια γρήγορη εικόνα για το τι κάνει το κατάλυμα ξεχωριστό.",
       comfortEyebrow: "Άνεση",
       amenitiesTitle: "Παροχές",
       amenitiesDesc: "Ό,τι χρειάζεσαι για μια άνετη και εύκολη διαμονή.",
@@ -111,4 +108,3 @@ type Dict = typeof DICT.en;
 export function t<L extends Locale>(locale: L): Dict {
   return (DICT[locale] ?? DICT.en) as Dict;
 }
-
