@@ -5,7 +5,7 @@ export const LOCALE_COOKIE = "site_locale";
 const DICT = {
   en: {
     header: {
-      title: "Luxery Apartments Theodoras",
+      title: "Luxery Apartments",
       parga: "Parga",
       nafplio: "Nafplio",
     },
@@ -51,7 +51,7 @@ const DICT = {
   },
   el: {
     header: {
-      title: "Luxery Apartments Theodoras",
+      title: "Luxery Apartments",
       parga: "Πάργα",
       nafplio: "Ναύπλιο",
     },

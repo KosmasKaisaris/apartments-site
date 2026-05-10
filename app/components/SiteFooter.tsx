@@ -34,7 +34,7 @@ export async function SiteFooter() {
               </span>
               <div className="min-w-0 leading-tight">
                 <div className="text-sm font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-                  Luxery Apartments Theodoras
+                  Luxery Apartments 
                 </div>
                 <div className="text-sm text-zinc-600 dark:text-zinc-400">
                   {dict.footer.directBooking}
@@ -96,7 +96,7 @@ export async function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-zinc-200/70 pt-6 text-sm text-zinc-600 dark:border-white/10 dark:text-zinc-400 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            © {year} Luxery Apartments Theodoras. {dict.footer.rights}
+            © {year} Luxery Apartments. {dict.footer.rights}
           </div>
         </div>
       </div>
