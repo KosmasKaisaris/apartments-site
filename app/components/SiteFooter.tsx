@@ -28,7 +28,7 @@ export async function SiteFooter() {
                   src="/Logo.png"
                   alt="Logo"
                   fill
-                  className="object-contain p-1.5 dark:invert"
+                  className="object-contain p-1 dark:invert"
                   sizes="40px"
                 />
               </span>

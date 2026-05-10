@@ -19,13 +19,13 @@ export async function SiteHeader() {
             href="/"
             className="group inline-flex shrink-0 items-center gap-3 font-semibold tracking-tight text-zinc-950 transition-colors dark:text-zinc-50"
           >
-            <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-200/70 transition-transform duration-200 group-hover:-translate-y-0.5 dark:bg-black dark:ring-white/10">
+            <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-200/70 transition-transform duration-200 group-hover:-translate-y-0.5 dark:bg-black dark:ring-white/10">
               <Image
                 src="/Logo.png"
                 alt="Logo"
                 fill
-                className="object-contain p-1.5"
-                sizes="40px"
+                className="scale-[1.2] object-contain"
+                sizes="48px"
                 priority
               />
             </span>

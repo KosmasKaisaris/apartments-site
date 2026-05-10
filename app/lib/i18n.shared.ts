@@ -41,6 +41,10 @@ const DICT = {
       directBooking: "Direct booking — contact us anytime.",
       about:
         "Explore each apartment’s highlights, amenities, and gallery photos. When you’re ready, call or email us to check availability.",
+      quickInfo: "Quick info",
+      q1: "Fast Wi Fi",
+      q2: "Comfort amenities",
+      q3: "Photo galleries",
       contact: "Contact",
       rights: "All rights reserved.",
       privacy: "Privacy",
