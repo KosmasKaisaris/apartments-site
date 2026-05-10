@@ -39,7 +39,7 @@ export async function ApartmentHero(props: { apartment: Apartment }) {
 
             <div className="flex flex-col gap-3 pt-4 sm:flex-row">
               <PrimaryLink href={`mailto:${apartment.contact.email}`} external>
-                {dict.apartment.email}
+                {apartment.contact.email}
               </PrimaryLink>
               <SecondaryLink href={`tel:${apartment.contact.phoneE164}`} external>
                 {dict.apartment.call} {apartment.contact.phoneDisplay}
