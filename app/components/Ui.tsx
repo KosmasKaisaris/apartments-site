@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 export function Container(props: { children: ReactNode }) {
-  return <div className="mx-auto w-full max-w-6xl px-5">{props.children}</div>;
+  return <div className="mx-auto w-full max-w-6xl px-4 sm:px-5">{props.children}</div>;
 }
 
 export function Section(props: {
@@ -12,7 +12,7 @@ export function Section(props: {
   children?: ReactNode;
 }) {
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-10 sm:py-16">
       <div className="space-y-3">
         {props.eyebrow ? (
           <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
@@ -43,7 +43,7 @@ export function Card(props: { children: ReactNode }) {
 
 export function Pill(props: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-700 dark:border-white/10 dark:bg-black dark:text-zinc-300">
+    <span className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-2.5 py-1 text-xs text-zinc-700 dark:border-white/10 dark:bg-black dark:text-zinc-300 sm:px-3 sm:text-sm">
       {props.children}
     </span>
   );
@@ -55,7 +55,7 @@ export function PrimaryLink(props: {
   external?: boolean;
 }) {
   const className =
-    "inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200";
+    "inline-flex w-full items-center justify-center rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 sm:w-auto";
 
   if (props.external) {
     return (
@@ -83,7 +83,7 @@ export function SecondaryLink(props: {
   external?: boolean;
 }) {
   const className =
-    "inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-black dark:text-zinc-100 dark:hover:bg-white/5";
+    "inline-flex w-full items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-black dark:text-zinc-100 dark:hover:bg-white/5 sm:w-auto";
 
   if (props.external) {
     return (

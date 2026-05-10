@@ -17,7 +17,7 @@ export default async function Home() {
       <SiteHeader />
 
       <main className="flex-1">
-        <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:py-14">
+        <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-5 sm:py-14">
           <div className="flex flex-col gap-3">
             <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-600 dark:text-zinc-400">
               {dict.home.kicker}
@@ -82,7 +82,7 @@ function SplitPanel(props: {
   return (
     <Link
       href={props.href}
-      className="group relative isolate flex h-[320px] items-end overflow-hidden rounded-3xl border border-zinc-200/70 bg-zinc-950 shadow-sm transition hover:shadow-md dark:border-white/10"
+      className="group relative isolate flex h-[280px] items-end overflow-hidden rounded-2xl border border-zinc-200/70 bg-zinc-950 shadow-sm transition hover:shadow-md dark:border-white/10 sm:h-[320px] sm:rounded-3xl"
     >
       <Image
         src={props.imageSrc}
@@ -95,16 +95,16 @@ function SplitPanel(props: {
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
       <div className="absolute inset-0 opacity-[0.35] [background:radial-gradient(900px_circle_at_20%_20%,rgba(255,255,255,0.22),transparent_55%)]" />
 
-      <div className="relative w-full p-6 sm:p-10">
+      <div className="relative w-full p-5 sm:p-10">
         <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
           {props.meta}
         </div>
-        <div className="mt-3 flex items-end justify-between gap-6">
+        <div className="mt-3 flex items-end justify-between gap-4 sm:gap-6">
           <div className="space-y-2">
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
               {props.title}
             </h1>
-            <p className="max-w-xl text-sm leading-6 text-white/80 sm:text-base">
+            <p className="max-w-xl text-sm leading-5 text-white/80 sm:text-base sm:leading-6">
               {props.subtitle}
             </p>
           </div>

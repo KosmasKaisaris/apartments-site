@@ -19,7 +19,7 @@ export async function SiteFooter() {
 
   return (
     <footer className="mt-auto border-t border-zinc-200/70 bg-white dark:border-white/10 dark:bg-black">
-      <div className="mx-auto w-full max-w-6xl px-5 py-12">
+      <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-5 sm:py-12">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="space-y-4 lg:col-span-5">
             <Link href="/" className="inline-flex items-center gap-3">
@@ -32,7 +32,7 @@ export async function SiteFooter() {
                   sizes="40px"
                 />
               </span>
-              <div className="leading-tight">
+              <div className="min-w-0 leading-tight">
                 <div className="text-sm font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
                   Luxery Apartments Theodoras
                 </div>

@@ -12,16 +12,16 @@ export async function ApartmentHero(props: { apartment: Apartment }) {
     <div className="relative overflow-hidden border-b border-zinc-200/70 bg-gradient-to-b from-zinc-50 to-white dark:border-white/10 dark:from-black dark:to-black">
       <div className="absolute inset-0 opacity-[0.65] [background:radial-gradient(1200px_circle_at_20%_-10%,rgba(0,0,0,0.08),transparent_55%),radial-gradient(900px_circle_at_90%_0%,rgba(0,0,0,0.06),transparent_55%)] dark:opacity-100 dark:[background:radial-gradient(1200px_circle_at_20%_-10%,rgba(255,255,255,0.10),transparent_55%),radial-gradient(900px_circle_at_90%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:py-14">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+      <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-5 sm:py-14">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="space-y-4 lg:col-span-6">
             <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
               {apartment.locationLine}
             </div>
-            <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-5xl">
+            <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
               {apartment.name}
             </h1>
-            <p className="max-w-xl text-base leading-7 text-zinc-600 dark:text-zinc-400 sm:text-lg">
+            <p className="max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400 sm:text-base sm:leading-7 lg:text-lg">
               {apartment.tagline}
             </p>
 
@@ -48,7 +48,7 @@ export async function ApartmentHero(props: { apartment: Apartment }) {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-950">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:rounded-3xl">
               <Image
                 src={apartment.heroImage.src}
                 alt={apartment.heroImage.alt}
@@ -67,7 +67,7 @@ export async function ApartmentHero(props: { apartment: Apartment }) {
 
 export function Highlights(props: { highlights: string[] }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {props.highlights.map((h) => (
         <Card key={h}>
           <div className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
