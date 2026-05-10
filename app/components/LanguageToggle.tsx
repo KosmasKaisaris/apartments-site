@@ -35,10 +35,16 @@ export function LanguageToggle() {
         setLocale(next);
         router.refresh();
       }}
-      className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold tracking-[0.24em] text-zinc-700 hover:bg-zinc-50 hover:text-zinc-950 dark:border-white/15 dark:bg-black dark:text-zinc-200 dark:hover:bg-white/5 dark:hover:text-white"
-      aria-label="Change language"
+      className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-zinc-50/80 px-3.5 py-2 text-[0.7rem] font-semibold tracking-[0.28em] text-zinc-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-white hover:text-zinc-950 dark:border-white/15 dark:bg-white/5 dark:text-zinc-200 dark:hover:border-white/25 dark:hover:bg-white/10 dark:hover:text-white"
+      aria-label="Switch language"
     >
-      {locale.toUpperCase()}
+      <span className={locale === "en" ? "text-zinc-950 dark:text-white" : "text-zinc-400 dark:text-zinc-400"}>
+        EN
+      </span>
+      <span className="text-zinc-400 dark:text-zinc-500">/</span>
+      <span className={locale === "el" ? "text-zinc-950 dark:text-white" : "text-zinc-400 dark:text-zinc-400"}>
+        GR
+      </span>
     </button>
   );
 }
