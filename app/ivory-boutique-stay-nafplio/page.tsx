@@ -18,6 +18,20 @@ const apartment = getApartment("ivory-boutique-stay-nafplio");
 export const metadata: Metadata = {
   title: apartment.name,
   description: apartment.tagline,
+  keywords: [
+    "Nafplio apartment",
+    "Nafplio hotel alternative",
+    "boutique stay Nafplio",
+    "amazing stay Nafplio",
+    "couples apartment Nafplio",
+    "Greece city break apartment",
+  ],
+  openGraph: {
+    title: "Ivory Boutique Stay Nafplio",
+    description:
+      "Amazing boutique apartment in Nafplio, Greece. Perfect for couples and longer stays.",
+    type: "website",
+  },
 };
 
 export default async function IvoryBoutiqueStayNafplioPage() {

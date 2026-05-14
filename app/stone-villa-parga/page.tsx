@@ -18,6 +18,20 @@ const apartment = getApartment("stone-villa-parga");
 export const metadata: Metadata = {
   title: apartment.name,
   description: apartment.tagline,
+  keywords: [
+    "Parga villa",
+    "stone villa Parga",
+    "Parga hotel alternative",
+    "amazing villa Greece",
+    "family villa Parga",
+    "sea view villa Parga",
+  ],
+  openGraph: {
+    title: "Wood and Stone Villa Parga",
+    description:
+      "Amazing stone villa in Parga, Greece with sea views, ideal for families and direct booking.",
+    type: "website",
+  },
 };
 
 export default async function StoneVillaPargaPage() {

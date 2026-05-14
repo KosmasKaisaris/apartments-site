@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { apartments } from "./lib/siteContent";
@@ -5,6 +6,20 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { getLocaleFromCookies } from "./lib/i18n.server";
 import { t } from "./lib/i18n.shared";
+
+export const metadata: Metadata = {
+  title: "Nafplio & Parga Apartments",
+  description:
+    "Amazing villa and apartment options in Parga and Nafplio, Greece. View photos, amenities, and book directly.",
+  keywords: [
+    "Nafplio apartment",
+    "Parga villa",
+    "Parga hotel alternative",
+    "Nafplio boutique stay",
+    "amazing apartment Greece",
+    "villa with sea view Parga",
+  ],
+};
 
 export default async function Home() {
   const a = apartments[0];

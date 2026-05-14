@@ -15,10 +15,32 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Apartments",
-    template: "%s · Apartments",
+    default: "Luxury Apartments in Parga & Nafplio",
+    template: "%s · Luxury Apartments in Greece",
   },
-  description: "Two apartments — photos, amenities, and contact details.",
+  description:
+    "Direct booking for two amazing stays in Greece: a stone villa in Parga and a boutique apartment in Nafplio.",
+  keywords: [
+    "Nafplio",
+    "Parga",
+    "hotel",
+    "villa",
+    "amazing",
+    "luxury apartment Greece",
+    "boutique stay Nafplio",
+    "stone villa Parga",
+    "holiday rental Greece",
+    "family villa Parga",
+    "couples apartment Nafplio",
+    "direct booking Greece",
+  ],
+  openGraph: {
+    type: "website",
+    title: "Luxury Apartments in Parga & Nafplio",
+    description:
+      "Book an amazing villa in Parga or a boutique stay in Nafplio. Photos, amenities, and direct contact.",
+    siteName: "Luxury Apartments Greece",
+  },
 };
 
 export default async function RootLayout({
