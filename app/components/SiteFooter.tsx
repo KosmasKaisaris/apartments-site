@@ -18,7 +18,7 @@ export async function SiteFooter() {
   const dict = t(locale);
 
   return (
-    <footer className="mt-auto border-t border-zinc-200/70 bg-white dark:border-white/10 dark:bg-black">
+    <footer className="mt-auto border-t border-zinc-200/70 bg-white/72 backdrop-blur-sm dark:border-white/10 dark:bg-black/38">
       <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-5 sm:py-12">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="space-y-4 lg:col-span-5">

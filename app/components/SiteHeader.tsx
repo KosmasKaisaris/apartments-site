@@ -12,7 +12,7 @@ export async function SiteHeader() {
   const dict = t(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200/80 bg-white/90 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-black/50">
+    <header className="sticky top-0 z-40 border-b border-zinc-200/80 bg-white/78 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-black/42">
       <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:flex sm:items-center sm:gap-6 sm:px-5 sm:py-4">
         <div className="flex items-center gap-3">
           <Link

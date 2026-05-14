@@ -13,7 +13,7 @@ export default async function Home() {
   const dict = t(locale);
 
   return (
-    <div className="flex min-h-dvh flex-col bg-white dark:bg-black">
+    <div className="flex min-h-dvh flex-col">
       <SiteHeader />
 
       <main className="flex-1">

@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --surface: rgba(255, 255, 255, 0.78);
 }
 
 @theme inline {
@@ -16,13 +17,29 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --surface: rgba(0, 0, 0, 0.48);
   }
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1100px 500px at 0% -10%, color-mix(in oklab, #60a5fa 16%, transparent), transparent 60%),
+    radial-gradient(900px 420px at 100% 0%, color-mix(in oklab, #22d3ee 14%, transparent), transparent 62%),
+    linear-gradient(180deg, color-mix(in oklab, var(--background) 92%, #f8fafc), var(--background));
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.35;
+  z-index: -1;
 }
 
 ::selection {
