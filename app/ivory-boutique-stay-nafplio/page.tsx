@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
-import { Container, Section } from "../components/Ui";
+import { Container } from "../components/Ui";
 import {
   Amenities,
   ApartmentHero,
   Highlights,
 } from "../components/ApartmentSections";
 import { LightboxGallery } from "../components/LightboxGallery";
+import { LocalizedSection } from "../components/LocalizedSection";
 import { getApartment } from "../lib/siteContent";
 import { getImagesFromPublicFolder } from "../lib/publicImages";
-import { t } from "../lib/i18n.shared";
 
 const apartment = getApartment("ivory-boutique-stay-nafplio");
 
@@ -34,7 +34,6 @@ export const metadata: Metadata = {
 };
 
 export default async function IvoryBoutiqueStayNafplioPage() {
-  const dict = t("en");
   const images = await getImagesFromPublicFolder({
     folder: "appartment-b",
     altPrefix: apartment.name,
@@ -47,29 +46,17 @@ export default async function IvoryBoutiqueStayNafplioPage() {
         <ApartmentHero apartment={apartment} />
 
         <Container>
-          <Section
-            eyebrow={dict.apartment.whyLoveEyebrow}
-            title={dict.apartment.highlightsTitle}
-            description={dict.apartment.highlightsDesc}
-          >
-            <Highlights highlights={apartment.highlights} />
-          </Section>
+          <LocalizedSection kind="highlights">
+            <Highlights apartment={apartment} />
+          </LocalizedSection>
 
-          <Section
-            eyebrow={dict.apartment.comfortEyebrow}
-            title={dict.apartment.amenitiesTitle}
-            description={dict.apartment.amenitiesDesc}
-          >
-            <Amenities items={apartment.amenities} />
-          </Section>
+          <LocalizedSection kind="amenities">
+            <Amenities apartment={apartment} />
+          </LocalizedSection>
 
-          <Section
-            eyebrow={dict.apartment.photosEyebrow}
-            title={dict.apartment.galleryTitle}
-            description={dict.apartment.galleryDesc}
-          >
+          <LocalizedSection kind="gallery">
             <LightboxGallery images={images} />
-          </Section>
+          </LocalizedSection>
         </Container>
       </main>
       <SiteFooter />

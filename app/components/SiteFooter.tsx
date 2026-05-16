@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { apartments } from "../lib/siteContent";
-import { t } from "../lib/i18n.shared";
+import { useI18n } from "./I18nClient";
 
 export function SiteFooter() {
   const primaryContact = apartments[0]?.contact;
@@ -12,7 +14,7 @@ export function SiteFooter() {
     : undefined;
 
   const year = new Date().getFullYear();
-  const dict = t("en");
+  const { dict } = useI18n();
 
   return (
     <footer className="mt-auto border-t border-zinc-200/70 bg-white/72 backdrop-blur-sm dark:border-white/10 dark:bg-black/38">

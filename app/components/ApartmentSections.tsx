@@ -1,10 +1,13 @@
+"use client";
+
 import { Card, Pill, PrimaryLink, SecondaryLink } from "./Ui";
-import type { Apartment } from "../lib/siteContent";
-import { t } from "../lib/i18n.shared";
+import { getApartmentLocaleData, type Apartment } from "../lib/siteContent";
+import { useI18n } from "./I18nClient";
 
 export function ApartmentHero(props: { apartment: Apartment }) {
   const { apartment } = props;
-  const dict = t("en");
+  const { dict, locale } = useI18n();
+  const localized = getApartmentLocaleData(apartment, locale);
 
   return (
     <div className="relative overflow-hidden border-b border-zinc-200/70 bg-gradient-to-b from-zinc-50 to-white dark:border-white/10 dark:from-black dark:to-black">
@@ -14,17 +17,17 @@ export function ApartmentHero(props: { apartment: Apartment }) {
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="space-y-4 lg:col-span-6">
             <div className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
-              {apartment.locationLine}
+              {localized.locationLine}
             </div>
             <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
-              {apartment.name}
+              {localized.name}
             </h1>
             <p className="max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400 sm:text-base sm:leading-7 lg:text-lg">
-              {apartment.tagline}
+              {localized.tagline}
             </p>
 
             <div className="flex flex-wrap gap-2 pt-2">
-              {apartment.quickFacts.map((f) => (
+              {localized.quickFacts.map((f) => (
                 <Pill key={f.label}>
                   <span className="font-medium text-zinc-900 dark:text-zinc-100">
                     {f.value}
@@ -60,10 +63,13 @@ export function ApartmentHero(props: { apartment: Apartment }) {
   );
 }
 
-export function Highlights(props: { highlights: string[] }) {
+export function Highlights(props: { apartment: Apartment }) {
+  const { locale } = useI18n();
+  const localized = getApartmentLocaleData(props.apartment, locale);
+
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {props.highlights.map((h) => (
+      {localized.highlights.map((h) => (
         <Card key={h}>
           <div className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
             {h}
@@ -74,10 +80,13 @@ export function Highlights(props: { highlights: string[] }) {
   );
 }
 
-export function Amenities(props: { items: string[] }) {
+export function Amenities(props: { apartment: Apartment }) {
+  const { locale } = useI18n();
+  const localized = getApartmentLocaleData(props.apartment, locale);
+
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {props.items.map((x) => (
+      {localized.amenities.map((x) => (
         <div
           key={x}
           className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-700 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-300"

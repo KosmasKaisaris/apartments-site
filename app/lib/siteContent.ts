@@ -1,3 +1,5 @@
+import type { Locale } from "./i18n.shared";
+
 export type Apartment = {
   slug: "stone-villa-parga" | "ivory-boutique-stay-nafplio";
   name: string;
@@ -13,6 +15,19 @@ export type Apartment = {
     phoneE164: string;
     email: string;
   };
+  translations?: Partial<
+    Record<
+      Locale,
+      {
+        name?: string;
+        tagline?: string;
+        locationLine?: string;
+        quickFacts?: Array<{ label: string; value: string }>;
+        highlights?: string[];
+        amenities?: string[];
+      }
+    >
+  >;
 };
 
 export const apartments: Apartment[] = [
@@ -56,6 +71,33 @@ export const apartments: Apartment[] = [
       phoneE164: "+306976994134",
       email: "dimsmirlis7@gmail.com",
     },
+    translations: {
+      el: {
+        name: "Βίλα Wood and Stone Πάργα",
+        tagline: "Φωτεινή, ήρεμη και παραδοσιακή — ιδανική για οικογένειες.",
+        locationLine: "Αγιά · Πάργα, Ελλάδα",
+        quickFacts: [
+          { label: "Επισκέπτες", value: "5 – 6" },
+          { label: "Υπνοδωμάτια", value: "2" },
+          { label: "Κρεβάτια", value: "2 διπλά + 2 καναπέδες-κρεβάτι" },
+          { label: "Μπάνιο", value: "2" },
+        ],
+        highlights: [
+          "Ατελείωτη θέα στο Ιόνιο, στους Παξούς και στο ιστορικό κάστρο του Αλή Πασά.",
+          "Βρίσκεται στον ιστορικό οικισμό της Αγιάς, στην κορυφή του λόφου.",
+          "Η βεράντα περιβάλλεται από παλιά ελαιόδεντρα.",
+        ],
+        amenities: [
+          "Κλιματισμός",
+          "Γρήγορο Wi‑Fi",
+          "Smart TV",
+          "Πλήρως εξοπλισμένη κουζίνα",
+          "Καφετιέρα",
+          "Βεράντα με θέα στη θάλασσα",
+          "Καθαρά σεντόνια & πετσέτες",
+        ],
+      },
+    },
   },
   {
     slug: "ivory-boutique-stay-nafplio",
@@ -97,8 +139,47 @@ export const apartments: Apartment[] = [
       phoneE164: "+306976994134",
       email: "dimsmirlis7@gmail.com",
     },
+    translations: {
+      el: {
+        name: "Ivory Boutique Stay Ναύπλιο",
+        tagline: "Ιδανικό για ζευγάρια. Τέλειο και για μεγαλύτερη διαμονή.",
+        locationLine: "Ναύπλιο, Ελλάδα",
+        quickFacts: [
+          { label: "Επισκέπτες", value: "3 – 4" },
+          { label: "Υπνοδωμάτια", value: "1" },
+          { label: "Κρεβάτια", value: "1 διπλό + 1 καναπές-κρεβάτι" },
+          { label: "Μπάνιο", value: "1" },
+        ],
+        highlights: [
+          "Ευρύχωρο σαλόνι.",
+          "Ειδική γωνιά για εργασία.",
+          "Διαθέτει δική του θέση στάθμευσης.",
+        ],
+        amenities: [
+          "Κλιματισμός",
+          "Γρήγορο Wi‑Fi",
+          "Smart TV",
+          "Πλήρως εξοπλισμένη κουζίνα",
+          "Θέση στάθμευσης",
+          "Πλυντήριο ρούχων",
+          "Καθαρά σεντόνια & πετσέτες",
+        ],
+      },
+    },
   },
 ];
+
+export function getApartmentLocaleData(apartment: Apartment, locale: Locale) {
+  const tr = apartment.translations?.[locale];
+  return {
+    name: tr?.name ?? apartment.name,
+    tagline: tr?.tagline ?? apartment.tagline,
+    locationLine: tr?.locationLine ?? apartment.locationLine,
+    quickFacts: tr?.quickFacts ?? apartment.quickFacts,
+    highlights: tr?.highlights ?? apartment.highlights,
+    amenities: tr?.amenities ?? apartment.amenities,
+  };
+}
 
 export function getApartment(slug: Apartment["slug"]) {
   const apt = apartments.find((a) => a.slug === slug);

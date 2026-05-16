@@ -1,11 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { apartments } from "../lib/siteContent";
-import { t } from "../lib/i18n.shared";
+import { useI18n } from "./I18nClient";
 
 export function SiteHeader() {
   const a = apartments[0];
   const b = apartments[1];
-  const dict = t("en");
+  const { dict, locale, toggleLocale } = useI18n();
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/80 bg-white/78 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-black/42">
@@ -43,6 +45,21 @@ export function SiteHeader() {
               {dict.header.nafplio}
             </Link>
           </nav>
+
+          <button
+            type="button"
+            onClick={toggleLocale}
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-zinc-50/90 px-3.5 py-2 text-xs font-semibold tracking-[0.18em] text-zinc-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-white hover:text-zinc-950 dark:border-white/15 dark:bg-white/10 dark:text-zinc-100 dark:hover:border-white/25 dark:hover:bg-white/15"
+            aria-label="Switch language"
+          >
+            <span className={locale === "en" ? "text-zinc-950 dark:text-white" : "text-zinc-400 dark:text-zinc-400"}>
+              EN
+            </span>
+            <span className="text-zinc-400 dark:text-zinc-500">/</span>
+            <span className={locale === "el" ? "text-zinc-950 dark:text-white" : "text-zinc-400 dark:text-zinc-400"}>
+              GR
+            </span>
+          </button>
         </div>
       </div>
     </header>
