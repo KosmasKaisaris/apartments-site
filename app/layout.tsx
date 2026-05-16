@@ -41,6 +41,11 @@ export const metadata: Metadata = {
       "Book an amazing villa in Parga or a boutique stay in Nafplio. Photos, amenities, and direct contact.",
     siteName: "Luxury Apartments Greece",
   },
+  icons: {
+    icon: "/Logo.png",
+    shortcut: "/Logo.png",
+    apple: "/Logo.png",
+  },
 };
 
 export default function RootLayout({
