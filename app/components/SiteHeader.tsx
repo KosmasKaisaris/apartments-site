@@ -1,15 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { apartments } from "../lib/siteContent";
-import { getLocaleFromCookies } from "../lib/i18n.server";
 import { t } from "../lib/i18n.shared";
-import { LanguageToggle } from "./LanguageToggle";
 
-export async function SiteHeader() {
+export function SiteHeader() {
   const a = apartments[0];
   const b = apartments[1];
-  const locale = await getLocaleFromCookies();
-  const dict = t(locale);
+  const dict = t("en");
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/80 bg-white/78 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-black/42">
@@ -33,10 +30,6 @@ export async function SiteHeader() {
               {dict.header.title}
             </span>
           </Link>
-
-          <div className="ml-auto sm:hidden">
-            <LanguageToggle />
-          </div>
         </div>
 
         <div className="mt-3 flex items-center gap-2 sm:mt-0 sm:ml-auto sm:gap-3">
@@ -54,10 +47,6 @@ export async function SiteHeader() {
               {dict.header.nafplio}
             </Link>
           </nav>
-
-          <div className="hidden sm:block">
-            <LanguageToggle />
-          </div>
         </div>
       </div>
     </header>

@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { apartments } from "../lib/siteContent";
-import { getLocaleFromCookies } from "../lib/i18n.server";
 import { t } from "../lib/i18n.shared";
 
-export async function SiteFooter() {
+export function SiteFooter() {
   const primaryContact = apartments[0]?.contact;
   const phoneHref = primaryContact?.phoneE164
     ? `tel:${primaryContact.phoneE164}`
@@ -14,8 +13,7 @@ export async function SiteFooter() {
     : undefined;
 
   const year = new Date().getFullYear();
-  const locale = await getLocaleFromCookies();
-  const dict = t(locale);
+  const dict = t("en");
 
   return (
     <footer className="mt-auto border-t border-zinc-200/70 bg-white/72 backdrop-blur-sm dark:border-white/10 dark:bg-black/38">

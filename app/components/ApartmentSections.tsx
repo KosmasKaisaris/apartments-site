@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { Card, Pill, PrimaryLink, SecondaryLink } from "./Ui";
 import type { Apartment } from "../lib/siteContent";
-import { getLocaleFromCookies } from "../lib/i18n.server";
 import { t } from "../lib/i18n.shared";
 
-export async function ApartmentHero(props: { apartment: Apartment }) {
+export function ApartmentHero(props: { apartment: Apartment }) {
   const { apartment } = props;
-  const dict = t(await getLocaleFromCookies());
+  const dict = t("en");
 
   return (
     <div className="relative overflow-hidden border-b border-zinc-200/70 bg-gradient-to-b from-zinc-50 to-white dark:border-white/10 dark:from-black dark:to-black">

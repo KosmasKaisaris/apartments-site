@@ -4,7 +4,6 @@ import Link from "next/link";
 import { apartments } from "./lib/siteContent";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
-import { getLocaleFromCookies } from "./lib/i18n.server";
 import { t } from "./lib/i18n.shared";
 
 export const metadata: Metadata = {
@@ -21,11 +20,10 @@ export const metadata: Metadata = {
   ],
 };
 
-export default async function Home() {
+export default function Home() {
   const a = apartments[0];
   const b = apartments[1];
-  const locale = await getLocaleFromCookies();
-  const dict = t(locale);
+  const dict = t("en");
 
   return (
     <div className="flex min-h-dvh flex-col">
