@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { apartments } from "./lib/siteContent";
 import { SiteFooter } from "./components/SiteFooter";
@@ -97,13 +96,10 @@ function SplitPanel(props: {
       href={props.href}
       className="group relative isolate flex h-[280px] items-end overflow-hidden rounded-2xl border border-zinc-200/70 bg-zinc-950 shadow-sm transition hover:shadow-md dark:border-white/10 sm:h-[320px] sm:rounded-3xl"
     >
-      <Image
+      <img
         src={props.imageSrc}
         alt={props.imageAlt}
-        fill
-        className="object-cover opacity-90 transition duration-500 group-hover:scale-[1.02] group-hover:opacity-100"
-        sizes="(min-width: 1024px) 560px, 100vw"
-        priority
+        className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.02] group-hover:opacity-100"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
       <div className="absolute inset-0 opacity-[0.35] [background:radial-gradient(900px_circle_at_20%_20%,rgba(255,255,255,0.22),transparent_55%)]" />

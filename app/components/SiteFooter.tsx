@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { apartments } from "../lib/siteContent";
 import { t } from "../lib/i18n.shared";
 
@@ -22,12 +21,10 @@ export function SiteFooter() {
           <div className="space-y-4 lg:col-span-5">
             <Link href="/" className="inline-flex items-center gap-3">
               <span className="relative h-10 w-10 overflow-hidden rounded-2xl bg-zinc-950 ring-1 ring-zinc-200/70 dark:bg-white dark:ring-white/10">
-                <Image
+                <img
                   src="/Logo.png"
                   alt="Logo"
-                  fill
-                  className="object-contain p-1 dark:invert"
-                  sizes="40px"
+                  className="h-full w-full object-contain p-1 dark:invert"
                 />
               </span>
               <div className="min-w-0 leading-tight">

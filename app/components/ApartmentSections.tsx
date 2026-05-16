@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card, Pill, PrimaryLink, SecondaryLink } from "./Ui";
 import type { Apartment } from "../lib/siteContent";
 import { t } from "../lib/i18n.shared";
@@ -48,13 +47,10 @@ export function ApartmentHero(props: { apartment: Apartment }) {
 
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:rounded-3xl">
-              <Image
+              <img
                 src={apartment.heroImage.src}
                 alt={apartment.heroImage.alt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                priority
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
@@ -107,7 +103,7 @@ export function Gallery(props: { images: Array<{ src: string; alt: string }> }) 
             key={`${img.src}-${idx}`}
             className={`relative aspect-[4/3] overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-950 ${span}`}
           >
-            <Image src={img.src} alt={img.alt} fill className="object-cover" />
+            <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
           </div>
         );
       })}

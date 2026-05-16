@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { apartments } from "../lib/siteContent";
 import { t } from "../lib/i18n.shared";
 
@@ -17,13 +16,10 @@ export function SiteHeader() {
             className="group inline-flex shrink-0 items-center gap-3 font-semibold tracking-tight text-zinc-950 transition-colors dark:text-zinc-50"
           >
             <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-200/70 transition-transform duration-200 group-hover:-translate-y-0.5 dark:bg-black dark:ring-white/10">
-              <Image
+              <img
                 src="/Logo.png"
                 alt="Logo"
-                fill
-                className="scale-[1.2] object-contain"
-                sizes="48px"
-                priority
+                className="h-full w-full scale-[1.2] object-contain"
               />
             </span>
             <span className="hidden text-[0.72rem] uppercase tracking-[0.24em] text-zinc-700 transition-colors group-hover:text-zinc-950 dark:text-zinc-300 dark:group-hover:text-white sm:inline">
