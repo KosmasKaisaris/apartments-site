@@ -16,11 +16,8 @@ function getInitialLocale(): Locale {
 
 export function LanguageToggle() {
   const router = useRouter();
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useState<Locale>(() => getInitialLocale());
 
-  useEffect(() => {
-    setLocale(getInitialLocale());
-  }, []);
 
   const next: Locale = locale === "en" ? "el" : "en";
 
